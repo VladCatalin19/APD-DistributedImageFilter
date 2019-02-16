@@ -1,3 +1,9 @@
+-------------------------------------------------------------------------------
+Vlad Marius-Cătălin 335CC
+Anul III Semestrul I
+Tema3 Algoritmi Paraleli și Distribuiți
+-------------------------------------------------------------------------------
+
     Se citește din fișierul de intrare header-ul și matricea de pixeli a ima-
 ginii. Se creează o copie a acestei imagini și se procedează astfel:
 - pentru fiecare filtru se calculează culorile pixelilor respectivi;
