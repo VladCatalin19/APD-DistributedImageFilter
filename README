@@ -1,0 +1,27 @@
+    Se citește din fișierul de intrare header-ul și matricea de pixeli a ima-
+ginii. Se creează o copie a acestei imagini și se procedează astfel:
+- pentru fiecare filtru se calculează culorile pixelilor respectivi;
+- rezultatul se pune în imaginea copie;
+- dacă mai trebuie aplicat alt filtru, se copiază din matricea copie în matri-
+cea originală culorile pixelilor;
+- se reia ciclul până când nu mai trebuie aplicat alt filtru.
+
+    În final, se scrie în fișierul de ieșire header-ul și matricea de pixeli
+a imaginii respective.
+
+    Dacă programul este rulat cu un singur proces, procesul cu rang 0 va executa
+tot algoritmul descris mai sus. În caz contrar, procesul cu rang 0 va distribui
+către celelate procese linii din matricea de pixeli. Se vor trimite liniile 2
+linii în plus pentru fiecare proces pentru a putea calcula culoarea pixelului
+respectiv.
+    După ce s-au calculat culorile respective, fiecare proces va trimite proce-
+selor vecine (cu rang plus-minus 1) liniile care se intersectează, și care vor
+fi necesare pentru calculul culorilor pentru următorul filtru, dacă există. În
+caz că există, se trimite penultima linie către procesul cu rang + 1 și a doua
+linie către procesul cu rang - 1. Vecinii vor înlocui prima și ultima linie cu
+cele primite.
+    După ce s-au trimis liniile, se reia algoritmul de aplicare a filtrului până
+când nu mai trebuie aplicate filtre.
+    La final, fiecare proces trimite procesului cu rang 0 toate linii în afară
+de prima și ultima. Procesul 0 va reconstrui matricea și va scrie în fișierul
+de ieșire imaginea.
